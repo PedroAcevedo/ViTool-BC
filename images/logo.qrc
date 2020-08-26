@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="LogoImage">
+    <file>ViTool-CR.png</file>
+  </qresource>
+</RCC>

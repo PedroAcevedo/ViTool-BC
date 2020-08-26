@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simconf>
+<project export="discard">[APPS_DIR]/mrm</project>
+<project export="discard">[APPS_DIR]/mspsim</project>
+<project export="discard">[APPS_DIR]/avrora</project>
+<project export="discard">[APPS_DIR]/serial_socket</project>
+<project export="discard">[APPS_DIR]/powertracker</project>
+<simulation>
+<title>mySimulation</title>
+<delaytime>0</delaytime>
+<randomseed>123456</randomseed>
+<motedelay_us>1000000</motedelay_us>
+<radiomedium>
+      se.sics.cooja.radiomediums.UDGM
+      <transmitting_range>50</transmitting_range>
+<interference_range>70</interference_range>
+<success_ratio_tx>1.0</success_ratio_tx>
+<success_ratio_rx>0.0</success_ratio_rx>
+</radiomedium>
+<events>
+<logoutput>40000</logoutput>
+</events>
+    <motetype>
+      se.sics.cooja.mspmote.SkyMoteType
+      <identifier>sky1</identifier>
+      <description>Sky Mote Type #sky1</description>
+      <source EXPORT="discard">[CONTIKI_DIR]-2.7/examples/ipv6/rpl-collect-v2/udp-sink.c</source>
+      <commands EXPORT="discard">make udp-sink.sky TARGET=sky</commands>
+      <firmware EXPORT="copy">[CONTIKI_DIR]-2.7/examples/ipv6/rpl-collect-v2/udp-sink.sky</firmware>
+      <moteinterface>se.sics.cooja.interfaces.Position</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.RimeAddress</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.IPAddress</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.Mote2MoteRelations</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.MoteAttributes</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspClock</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspMoteID</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyButton</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyFlash</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyCoffeeFilesystem</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.Msp802154Radio</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspSerial</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyLED</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspDebugOutput</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyTemperature</moteinterface>
+    </motetype>
+    <motetype>
+      se.sics.cooja.mspmote.SkyMoteType
+      <identifier>sky2</identifier>
+      <description>Sky Mote Type #sky2</description>
+      <source EXPORT="discard">[CONTIKI_DIR]-2.7/examples/ipv6/rpl-collect-v2/udp-sender.c</source>
+      <commands EXPORT="discard">make udp-sender.sky TARGET=sky WITH_COMPOWER=1</commands>
+      <firmware EXPORT="copy">[CONTIKI_DIR]-2.7/examples/ipv6/rpl-collect-v2/udp-sender.sky</firmware>
+      <moteinterface>se.sics.cooja.interfaces.Position</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.RimeAddress</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.IPAddress</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.Mote2MoteRelations</moteinterface>
+      <moteinterface>se.sics.cooja.interfaces.MoteAttributes</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspClock</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspMoteID</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyButton</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyFlash</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyCoffeeFilesystem</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.Msp802154Radio</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspSerial</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyLED</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.MspDebugOutput</moteinterface>
+      <moteinterface>se.sics.cooja.mspmote.interfaces.SkyTemperature</moteinterface>
+    </motetype>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-52.39378155103277</x>
+<y>94.56394590570208</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>1</id>
+</interface_config>
+<motetype_identifier>sky1</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-101.15353627661024</x>
+<y>63.37275339286372</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>2</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-110.25234580830885</x>
+<y>112.0233443163371</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>3</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-31.62860967010032</x>
+<y>104.16409140303666</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>4</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-130.06220741596687</x>
+<y>6.770079481357783</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>5</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-11.00779778245608</x>
+<y>143.48658649890785</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>6</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-35.10119185428353</x>
+<y>118.37614997206904</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>7</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-52.669995986700535</x>
+<y>116.06224419523896</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>8</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-76.19822248716174</x>
+<y>15.16303855596582</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>9</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-99.66528190195375</x>
+<y>52.096005903317035</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>10</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-109.63720181579963</x>
+<y>39.14358601837321</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>11</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-34.74461961421505</x>
+<y>112.96382271185341</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>12</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-23.8283232153836</x>
+<y>121.57744962689765</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>13</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-39.287534505893476</x>
+<y>26.497746438518256</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>14</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-71.65585797442884</x>
+<y>33.121520413168135</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>15</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-6.2661517810826854</x>
+<y>69.37131066440777</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>16</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-120.40664109382631</x>
+<y>30.846724265397945</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>17</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-8.807242976540463</x>
+<y>68.261283380398</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>18</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-47.146071644561225</x>
+<y>81.44576181244632</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>19</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-11.044646946852</x>
+<y>74.47197800801669</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>20</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-32.09358955488416</x>
+<y>9.686682821380977</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>21</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-4.240917407414068</x>
+<y>18.12186885555463</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>22</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-90.5678787743424</x>
+<y>89.4906490825846</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>23</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-95.02829762213635</x>
+<y>42.12509257465925</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>24</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-36.554014921772946</x>
+<y>93.69278355515745</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>25</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-106.22545192398155</x>
+<y>57.77834286856706</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>26</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-85.05221370338428</x>
+<y>79.08524124184089</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>27</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-67.82292623675387</x>
+<y>79.26733464747154</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>28</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-71.68073272892366</x>
+<y>123.7555782786557</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>29</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-55.24162457878063</x>
+<y>40.09737298518088</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>30</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-76.20727448147986</x>
+<y>99.3160035733738</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>31</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-55.08645605680176</x>
+<y>26.37105892913742</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>32</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-131.97052815219388</x>
+<y>85.48226103407481</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>33</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-39.19224830090277</x>
+<y>114.30590533239359</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>34</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-100.90837991959641</x>
+<y>67.26442239486558</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>35</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-118.13453177171505</x>
+<y>12.107863559133547</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>36</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-40.63405600522394</x>
+<y>7.81560728110679</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>37</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-45.76999515303168</x>
+<y>88.77168016232346</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>38</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-76.54045743508073</x>
+<y>102.59390075393833</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>39</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+<mote>
+<breakpoints></breakpoints>
+<interface_config>
+                    se.sics.cooja.interfaces.Position
+                    <x>-118.36924773377152</x>
+<y>45.274577817077855</y>
+<z>0.0</z>
+</interface_config>
+<interface_config>
+                    se.sics.cooja.mspmote.interfaces.MspMoteID
+                    <id>40</id>
+</interface_config>
+<motetype_identifier>sky2</motetype_identifier>
+</mote>
+
+</simulation>
+<plugin>
+    se.sics.cooja.plugins.SimControl
+    <width>259</width>
+<z>2</z>
+<height>184</height>
+<location_x>0</location_x>
+<location_y>0</location_y>
+</plugin>
+<plugin>
+    se.sics.cooja.plugins.Visualizer
+    <plugin_config>
+<skin>se.sics.cooja.plugins.skins.IDVisualizerSkin</skin>
+<skin>se.sics.cooja.plugins.skins.AttributeVisualizerSkin</skin>
+<skin>se.sics.cooja.plugins.skins.UDGMVisualizerSkin</skin>
+<viewport>1.836243522352668 0.0 0.0 1.836243522352668 -93.43273668589363 192.8080782058222</viewport>
+</plugin_config>
+<width>666</width>
+<z>0</z>
+<height>510</height>
+<location_x>369</location_x>
+<location_y>-8</location_y>
+</plugin>
+<plugin>
+    se.sics.cooja.plugins.LogListener
+    <plugin_config>
+<filter></filter>
+</plugin_config>
+<width>1347</width>
+<z>4</z>
+<height>150</height>
+<location_x>0</location_x>
+<location_y>438</location_y>
+</plugin>
+<plugin>
+    se.sics.cooja.plugins.ScriptRunner
+    <plugin_config>
+<script>TIMEOUT(1800000, log.log("last msg: " + msg + "\n"));</script>
+<active>true</active>
+</plugin_config>
+<width>600</width>
+<z>-1</z>
+<height>700</height>
+<location_x>282</location_x>
+<location_y>18</location_y>
+<minimized>true</minimized>
+</plugin>
+<plugin>
+    se.sics.cooja.plugins.RadioLogger
+    <plugin_config>
+<split>150</split>
+<formatted_time></formatted_time>
+<showdups>false</showdups>
+<hidenodests>false</hidenodests>
+<analyzers name="6lowpan-pcap"></analyzers>
+</plugin_config>
+<width>500</width>
+<z>-1</z>
+<height>300</height>
+<location_x>182</location_x>
+<location_y>64</location_y>
+<minimized>true</minimized>
+</plugin>
+</simconf>

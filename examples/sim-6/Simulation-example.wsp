@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <simconfig>
+        <simsfiles>
+            <log>/Users/proyecto_avas_intercultural/Documents/Development/InstantContiki2.7/py_files/cooja-rpl-collect-adapted/trafficFiles/sims/sim-6/20/log-mrhof-Sim1.txt</log>
+            <csc_file>/Users/proyecto_avas_intercultural/Documents/Development/InstantContiki2.7/py_files/cooja-rpl-collect-adapted/view-nodes20-Sim1.csc</csc_file>
+        </simsfiles>
+    <parameters> 
+        <energylevel>3</energylevel>
+        <delay>0.02</delay>
+        <mote_size>15</mote_size>
+        <node_scale>3</node_scale>
+    </parameters>
+</simconfig>
+        
