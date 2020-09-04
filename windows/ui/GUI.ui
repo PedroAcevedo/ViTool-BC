@@ -137,7 +137,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>play</string>
+           <string>Play</string>
           </property>
          </widget>
         </item>
@@ -147,7 +147,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>pause</string>
+           <string>Pause</string>
           </property>
          </widget>
         </item>
@@ -157,7 +157,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>reset</string>
+           <string>Reset</string>
           </property>
          </widget>
         </item>

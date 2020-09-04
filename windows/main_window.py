@@ -480,7 +480,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.drawn_motes = {}
         self.time = simulationTime(self.changeTime)
         self.edgeColors = list(filter(lambda color: 'dark' in color, QColor.colorNames()))
-        print(self.edgeColors)
 
         # simulations state
         self.pauseLog = False
@@ -528,7 +527,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fname = QFileDialog.getOpenFileName(
-            self, 'Open file', '', "(*.wsp)", options=options)
+            self, 'Open file', '', "(*.vtrc)", options=options)
         if fname[0] != '':
             with open(fname[0]) as file:
                 soup = BeautifulSoup(file,  "lxml")
@@ -561,9 +560,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog
             fileName, _ = QFileDialog.getSaveFileName(
-                self, "QFileDialog.getSaveFileName()", "", "All Files (*);;Text Files (*.txt)", options=options)
+                self, "QFileDialog.getSaveFileName()", "", "All Files (*);", options=options)
             if fileName:
-                f = open(fileName + ".wsp", "w+")
+                f = open(fileName + ".vtrc", "w+")
                 f.write(self.getWSP())
                 f.close()
         else:
@@ -817,7 +816,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         plus.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         plus.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("trafficFiles/images/plus.png"),
+        icon.addPixmap(QtGui.QPixmap("images/plus.png"),
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         plus.setIcon(icon)
         plus.setObjectName("plus")
@@ -832,7 +831,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         minus.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         minus.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("trafficFiles/images/minus.png"),
+        icon1.addPixmap(QtGui.QPixmap("images/minus.png"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         minus.setIcon(icon1)
         minus.setObjectName("minus")
