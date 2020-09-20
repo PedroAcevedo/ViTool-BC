@@ -655,10 +655,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             times = list(self.trees.keys())
             times.sort()
             for time in times:
-                item = QStandardItem('DODAG tree at time -> ' + time + ':00')
-                item.setEditable(False)
-
-                #self.model.appendRow(item)
+                self.log.appendPlainText('DODAG tree at time -> ' + time + ':00')
 
         #self.log.clicked[QModelIndex].connect(self.selectTopology)
 
