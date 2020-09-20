@@ -242,6 +242,7 @@ class Ui_MainWindow(object):
         self.DODAG_build.setText(_translate("MainWindow", "DODAG build"))
         self.cooja.setText(_translate("MainWindow", "Open tool"))
 import images.logo_rc
+import images.energy_rc
 
 
 if __name__ == "__main__":

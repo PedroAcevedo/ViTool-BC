@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="scale">
+    <file>energy_scale.png</file>
+  </qresource>
+</RCC>

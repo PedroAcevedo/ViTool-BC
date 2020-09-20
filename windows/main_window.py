@@ -835,12 +835,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         minus.setEnabled(False)
         minus.clicked.connect(self.zoomMinus)
 
+
+        energy_label = QtWidgets.QLabel(self)
+        energy_label.setGeometry(QtCore.QRect(35, 35, 110, 100))
+        energy_label.setStyleSheet("border-image: url(:/scale/energy_scale.png);")
+        energy_label.setText("")
+        energy_label.setScaledContents(True)
+        energy_label.setAlignment(QtCore.Qt.AlignCenter)
+        energy_label.setObjectName("scale")
+
         self.added = plus
         self.less = minus
         self.proxy = QtWidgets.QGraphicsProxyWidget()
         self.proxy.setWidget(plus)
         self.proxy.setWidget(minus)
         self.scene.addItem(self.proxy)
+        self.scene.addWidget(energy_label)
 
     def zoomPlus(self):
         # calculate our zoom Factor
