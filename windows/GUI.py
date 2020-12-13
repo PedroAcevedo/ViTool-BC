@@ -121,6 +121,7 @@ class Ui_MainWindow(object):
         self.actionClose = QtWidgets.QAction(MainWindow)
         self.actionClose.setObjectName("actionClose")
         self.editor = QtWidgets.QAction(MainWindow)
+        self.editor.setEnabled(False)
         self.editor.setObjectName("editor")
         self.parameters = QtWidgets.QAction(MainWindow)
         self.parameters.setEnabled(False)
@@ -201,7 +202,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Visualizer Tool based on RPL Cooja"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600;\">ViTool - RC</span></p></body></html>"))
+        self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600;\">ViTool - BC</span></p></body></html>"))
         self.timer.setText(_translate("MainWindow", "00:00.000"))
         self.run.setText(_translate("MainWindow", "Play"))
         self.pause.setText(_translate("MainWindow", "Pause"))
@@ -216,7 +217,7 @@ class Ui_MainWindow(object):
         self.open.setShortcut(_translate("MainWindow", "Meta+O"))
         self.save.setText(_translate("MainWindow", "Save project"))
         self.save.setShortcut(_translate("MainWindow", "Meta+S"))
-        self.dodag.setText(_translate("MainWindow", "Export DODAG"))
+        self.dodag.setText(_translate("MainWindow", "Export Topology"))
         self.dodag.setShortcut(_translate("MainWindow", "Meta+D"))
         self.actionClose.setText(_translate("MainWindow", "Close"))
         self.editor.setText(_translate("MainWindow", "Node editor"))
@@ -239,11 +240,10 @@ class Ui_MainWindow(object):
         self.Latency.setText(_translate("MainWindow", "Latency per node"))
         self.Control_messages.setText(_translate("MainWindow", "Control messages"))
         self.new_project.setText(_translate("MainWindow", "New project"))
-        self.DODAG_build.setText(_translate("MainWindow", "DODAG build"))
+        self.DODAG_build.setText(_translate("MainWindow", "Tree build"))
         self.cooja.setText(_translate("MainWindow", "Open tool"))
 import images.logo_rc
 import images.energy_rc
-
 
 if __name__ == "__main__":
     import sys

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <simconfig>
+        <simsfiles>
+            <log>/Users/proyecto_avas_intercultural/Documents/pythonProjects/ViTool-RC/examples/30-nodes-lossy-example/log-mhrof-example3.txt</log>
+            <csc_file>/Users/proyecto_avas_intercultural/Documents/pythonProjects/ViTool-RC/examples/30-nodes-lossy-example/collect-tree-sparse-lossy.csc</csc_file>
+        </simsfiles>
+    <parameters> 
+        <energylevel>1500</energylevel>
+        <delay>0.01</delay>
+        <mote_size>20</mote_size>
+        <node_scale>3</node_scale>
+    </parameters>
+</simconfig>
+        
+

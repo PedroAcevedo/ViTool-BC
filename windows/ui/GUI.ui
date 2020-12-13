@@ -104,7 +104,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;ViTool - RC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;ViTool - BC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -268,7 +268,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Export DODAG</string>
+    <string>Export Topology</string>
    </property>
    <property name="shortcut">
     <string>Meta+D</string>
@@ -280,6 +280,9 @@
    </property>
   </action>
   <action name="editor">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Node editor</string>
    </property>
@@ -407,7 +410,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>DODAG build</string>
+    <string>Tree build</string>
    </property>
   </action>
   <action name="cooja">
@@ -417,7 +420,7 @@
   </action>
  </widget>
  <resources>
-  <include location="logo.qrc"/>
+  <include location="../../images/logo.qrc"/>
  </resources>
  <connections>
   <connection>

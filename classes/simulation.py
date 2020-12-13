@@ -34,7 +34,7 @@ class Simulation():
         'best': r'ID:\d*\tBest parent:.*'
     }
 
-    def __init__(self, log, csc, pcap=None, BateryEnergy=3000):
+    def __init__(self, log, csc, pcap=None, BateryEnergy=3500):
         self.pcap = [] #self.openCSV(pcap) over development replace sniffer file
         self.log = log
         self.BEnergy = BateryEnergy
@@ -74,7 +74,18 @@ class Simulation():
     def getTotalPackets(self):
         return len([self.pcap[i]['Protocol'] for i in range(len(self.pcap))])
 
-    def getCount(self, column, parameter):
+    def getControlOverhead(self):
+        #return self.getCount("Info", self.DIO) + self.getCount("Info", self.DIS) + self.getCount("Info", self.DAO)
+        with open(self.log, 'r+') as f:
+            data = mmap.mmap(f.fileno(), 0)
+            dio = re.findall(bytes(rf'{self.DIO}', 'utf8'), data)
+            dis = re.findall(bytes(rf'{self.DIS}', 'utf8'), data)
+            dao = re.findall(bytes(rf'{self.DAO}', 'utf8'), data)
+            if dio or dis or dao:
+                print(f"DATA receive by the sink is: {len(dis)+len(dio)+len(dao)} UDP packects")
+                return len(dis)+len(dio)+len(dao)
+    
+    def getCount(self, column, parameter): # Count with help of the PCAP file, now is deprecated
         return len([self.pcap[i][column] for i in range(len(self.pcap))
                     if parameter in self.pcap[i][column]])
 
@@ -92,7 +103,7 @@ class Simulation():
     def getDataSendToSink(self):
         with open(self.log, 'r+') as f:
             data = mmap.mmap(f.fileno(), 0)
-            mo = re.findall(r'DATA send', data)
+            mo = re.findall(bytes(r'DATA send', 'utf8'), data)
             if mo:
                 print(f"DATA sending to the sink is: {len(mo)} UDP packects")
                 return len(mo)
@@ -201,10 +212,8 @@ class Simulation():
         for i in range(len(X)):
             print(f'{X[i]}, {Y["axis"][i]}')
 
-    def getControlOverhead(self):
-        return self.getCount("Info", self.DIO) + self.getCount("Info", self.DIS) + self.getCount("Info", self.DAO)
-
-    def getGeneralInfo(self):
+    def getGeneralInfo(self, filename):
+        self.pcap = self.openCSV(filename)
         ICMPV6 = self.getCount("Protocol", "ICMPv6")
         IEEE = self.getCount("Protocol", "IEEE 802.15.4")
         SixLoWPAN = self.getCount("Protocol", "6LoWPAN")

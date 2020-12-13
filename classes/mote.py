@@ -76,8 +76,7 @@ class ContikiMote():
             if mo:
                 for i in mo:
                     ipp = str(i).split(' ')[2][:-1]
-                    self.parents.append(
-                        [mote.getID() for mote in motes if mote.getIP() == ipp][0])
+                    self.parents.append([mote.getID() for mote in motes if mote.getIP() == ipp][0])
 
     def isMultipath(self):
         return len(set(self.parents)) > 1

@@ -638,7 +638,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if(val == QMessageBox.Ok):
             self.cleanScene()
             self.log.clear()
-            self.timer.setText("DODAG Phases View")
+            self.timer.setText("Tree View")
             self.trees = self.Sim.getDODAGTrace()
             self.drawDODAG(self.trees['00'],'00')
             #self.trees['00'].update( self.trees['01'])
@@ -786,7 +786,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif(action['action'] == 'sendData' and self.Latency.isChecked()):
             if(action["parent"] != None):
                 edge_color = QtGui.QColor()
-                edge_color.setNamedColor(self.edgeColors[self.Sim.getMotes()[action["mote"]].parentListSize()-1])
+                edge_color.setNamedColor(self.edgeColors[(self.Sim.getMotes()[action["mote"]].parentListSize()-1)%len(self.edgeColors)])
                 self.drawn_motes[action["mote"]].setParent( action["parent"], self.drawn_motes[action["parent"]], edge_color)
                 self.scene.addItem(self.drawn_motes[action["mote"]].getEdge())
             return f'{action["time"]}\tID:{action["mote"]}\tSend DATA to sink'
