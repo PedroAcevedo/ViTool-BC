@@ -201,7 +201,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Visualizer Tool based on RPL Cooja"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Visualizer Tool based on Cooja Simulator"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600;\">ViTool - BC</span></p></body></html>"))
         self.timer.setText(_translate("MainWindow", "00:00.000"))
         self.run.setText(_translate("MainWindow", "Play"))
