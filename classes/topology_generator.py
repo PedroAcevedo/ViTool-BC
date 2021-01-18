@@ -5,6 +5,7 @@ from random import choice
 from bs4 import BeautifulSoup
 import pandas as pd
 import matplotlib.pyplot as plt
+import math as mt
 
 from classes.simulation import Simulation
 
@@ -16,8 +17,8 @@ class Topologies():
     def __init__ (self, index, name, nodes, TX, RX, endInterval, startInterval=[0,0], TR=100, IR=120, sink=1):
         self.index = index
         self.name = name
-        self.nodes = nodes
-        self.source = nodes - sink
+        self.nodes = nodes + 1
+        self.source = nodes
         self.TX = str(TX)
         self.RX = str(RX)
         self.TR = str(TR)
@@ -95,13 +96,20 @@ class Topologies():
 
     def getMote(self,id, type):
         if(id==1): type='sky1'
+        valid = False
+        while not valid:
+            x = self.getCoordinate(0,id)
+            y = self.getCoordinate(1,id)
+            if( x not in self.insideRange(id, 0) or y not in self.insideRange(id, 1)):
+                valid = True
+
         return f"""
                 <mote>
                 <breakpoints />
                 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>{self.getCoordinate(0,id) if id!=1 else 0.0}</x>
-                    <y>{self.getCoordinate(1,id) if id!=1 else 0.0}</y>
+                    <x>{ x if id!=1 else 0.0}</x>
+                    <y>{ y if id!=1 else 0.0}</y>
                     <z>0.0</z>
                 </interface_config>
                 <interface_config>
@@ -116,17 +124,19 @@ class Topologies():
         if(self.nodes < 20):
             return choice([i for i in range(int(self.startInterval[axis]/2*self.areaById(id)),int(self.endInterval[axis]/2*self.areaById(id))) if i not in self.insideRange(id, axis)])
         else:
-            return choice([i for i in range(int(self.startInterval[axis]*self.areaById(id)),int(self.endInterval[axis]*self.areaById(id))) if i not in self.insideRange(id, axis)])
+            return choice([i for i in range(int(self.startInterval[axis]*self.areaById(id)),int(self.endInterval[axis]*self.areaById(id)))])
 
 
-    def areaById(self, id):
-        return ((int(id/10)+1)*10/self.nodes)
+    def areaById (self, id):
+        area = ((int(id/10)+1)*10/self.nodes)
+        return area if id < self.nodes else 1.0
 
     def insideRange(self, id, i):
         if(id <= 10):
             return range(-10,10)
         else:
-            return range(int(self.startInterval[i]*self.areaById(id-10)),int(self.endInterval[i]*self.areaById(id-10)))
+            less = 10 if id < self.nodes else 20
+            return range(int(self.startInterval[i]*self.areaById(id-less)),int(self.endInterval[i]*self.areaById(id-less)))
 
 ## trafficFiles/lg-OF-Sim1-4.txt
 ## trafficFiles/PCAP-OF-Sim1-4.csv
@@ -140,7 +150,7 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1"):
             print(f'OF analizada --> {of}')
             sim = Simulation(f'{path_to}/log-{of}-Sim{i+1}.txt', f'{path_to}/view-nodes{nodeInterval[i]}-Sim{i+1}.csc');
             m = sim.evaluateMetric(metric)
-            sim.getGeneralInfo(f'{path_to}/PCAP-{of}.csv')
+            #sim.getGeneralInfo(f'{path_to}/PCAP-{of}.csv')
             if (m == None):
                 m = 0 
             if of in data.keys(): 
@@ -165,6 +175,75 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1"):
         df.plot(kind='bar', rot=0)
         plt.xlabel('Number of nodes')
         plt.ylabel('Network lifetime (min)')
+
+
+def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
+    data = dict()
+    for i in range(len(ppm)):
+        path_to = f'examples/{folder}/{ppm[i]}'
+        for of in ofs:
+            print(f'OF analizada --> {of}')
+            sim = Simulation(f'{path_to}/log-{of}-Sim{i+1}.txt', f'examples/{folder}/view-nodes{nodes}-Sim1.csc');
+            if(metric != 'Lifetime'):
+                m = sim.evaluateMetric(metric, limit=lifetime[i])
+            else:
+                m = sim.evaluateMetric(metric)
+            #sim.getGeneralInfo(f'{path_to}/PCAP-{of}.csv')
+            if (m == None):
+                m = 0 
+            if of in data.keys(): 
+                data[of].append(m)
+            else:
+                data[of] = [m]
+    print(data)
+    df = pd.DataFrame(data, index=ppm)
+    print(df)
+    plt.xlabel('ppm')
+    import seaborn as sns
+    sns.set(font='DejaVu Sans',
+            rc={'axes.axisbelow': False,
+                'axes.edgecolor': 'lightgrey',
+                'axes.facecolor': 'None',
+                'axes.grid': False,
+                'axes.labelcolor': 'dimgrey',
+                'axes.spines.right': False,
+                'axes.spines.top': False,
+                'figure.facecolor': 'white',
+                'lines.solid_capstyle': 'round',
+                'patch.edgecolor': 'w',
+                'patch.force_edgecolor': True,
+                'text.color': 'dimgrey',
+                'xtick.bottom': True,
+                'xtick.color': 'dimgrey',
+                'xtick.direction': 'out',
+                'xtick.top': False,
+                'ytick.color': 'dimgrey',
+                'ytick.direction': 'out',
+                'ytick.left': False,
+                'ytick.right': False})
+    sns.set_context("notebook", rc={"font.size": 16,
+                                    "axes.titlesize": 20,
+                                    "axes.labelsize": 18})    
+    plt.style.use('fivethirtyeight')
+    if(metric == 'PDR'):
+        df.plot(kind='bar', rot=0, ylim=(10,100))
+        plt.ylabel('Packet Delivery Rate (PDR)')
+    elif(metric == 'Energy'):
+        df.plot(kind='area', stacked=False)
+        plt.ylabel('Average energy consumption (j)')
+    elif(metric == 'Overhead'):
+        df.plot(kind='bar',rot=0)
+        plt.ylabel('Control Message Overhead')
+    elif(metric == 'Lifetime'):
+        df.plot(kind='bar', rot=0)
+        plt.xlabel('ppm')
+        plt.ylabel('Network lifetime (min)')
+        for key in data.keys():
+            for i, element in enumerate(data[key]):
+                if (element == 0):
+                    data[key][i] = 1000
+        return (min(data.values()))
+
 # Sim = Simulation('trafficFiles/sims/sim-4/30/log-mrhof-Sim3.txt','trafficFiles/sims/sim-4/30/PCAP-mrhof-Sim3.csv','view-nodes30-Sim3.csc')
 # print(Sim.motes['3'].getEnergyConsumeByLog('20:01.260	ID:21	 153607 P 0.18 19 2348414 36967561 487180 862161 0 454435 162326 1803549 56121 48775 0 16926 (radio 3.-285% / 5.33% tx 1.-86% / 2.85% listen 2.-200% / 2.48%)'))
 # Sim.loadLog()

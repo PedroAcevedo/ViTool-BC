@@ -12,7 +12,7 @@
 <motedelay_us>1000000</motedelay_us>
 <radiomedium>
       se.sics.cooja.radiomediums.UDGM
-      <transmitting_range>50</transmitting_range>
+      <transmitting_range>70</transmitting_range>
 <interference_range>70</interference_range>
 <success_ratio_tx>1.0</success_ratio_tx>
 <success_ratio_rx>0.0</success_ratio_rx>
@@ -88,8 +88,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>13</x>
-<y>12</y>
+                    <x>-4</x>
+<y>10</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -103,7 +103,7 @@
 <interface_config>
                     se.sics.cooja.interfaces.Position
                     <x>-12</x>
-<y>11</y>
+<y>-4</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -116,8 +116,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-14</x>
-<y>14</y>
+                    <x>-8</x>
+<y>12</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -130,8 +130,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>13</x>
-<y>13</y>
+                    <x>-12</x>
+<y>1</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -144,8 +144,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-15</x>
-<y>10</y>
+                    <x>14</x>
+<y>-4</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -158,8 +158,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-13</x>
-<y>12</y>
+                    <x>12</x>
+<y>-11</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -172,8 +172,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>10</x>
-<y>10</y>
+                    <x>14</x>
+<y>-4</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -186,8 +186,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-12</x>
-<y>-11</y>
+                    <x>-15</x>
+<y>-5</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -200,7 +200,7 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-30</x>
+                    <x>19</x>
 <y>14</y>
 <z>0.0</z>
 </interface_config>
@@ -214,8 +214,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-24</x>
-<y>-16</y>
+                    <x>23</x>
+<y>20</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -228,8 +228,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>25</x>
-<y>26</y>
+                    <x>11</x>
+<y>-27</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -242,8 +242,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-21</x>
-<y>19</y>
+                    <x>-9</x>
+<y>28</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -256,8 +256,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-21</x>
-<y>25</y>
+                    <x>14</x>
+<y>29</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -270,8 +270,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>18</x>
-<y>-24</y>
+                    <x>6</x>
+<y>-18</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -284,8 +284,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>27</x>
-<y>-29</y>
+                    <x>-10</x>
+<y>-21</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -298,8 +298,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-29</x>
-<y>-24</y>
+                    <x>-27</x>
+<y>26</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -312,8 +312,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-21</x>
-<y>29</y>
+                    <x>18</x>
+<y>4</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -326,8 +326,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>18</x>
-<y>20</y>
+                    <x>-6</x>
+<y>-29</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -340,8 +340,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-34</x>
-<y>40</y>
+                    <x>10</x>
+<y>-31</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -354,8 +354,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>34</x>
-<y>-33</y>
+                    <x>-24</x>
+<y>-44</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -368,8 +368,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-41</x>
-<y>32</y>
+                    <x>31</x>
+<y>-10</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -382,8 +382,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>31</x>
-<y>-41</y>
+                    <x>-19</x>
+<y>42</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -396,8 +396,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>32</x>
-<y>-45</y>
+                    <x>43</x>
+<y>32</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -410,8 +410,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>41</x>
-<y>40</y>
+                    <x>-42</x>
+<y>3</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -424,8 +424,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-32</x>
-<y>-36</y>
+                    <x>-20</x>
+<y>35</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -438,8 +438,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>31</x>
-<y>36</y>
+                    <x>-43</x>
+<y>-14</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -452,8 +452,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>32</x>
-<y>-31</y>
+                    <x>40</x>
+<y>-3</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -466,8 +466,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-32</x>
-<y>-42</y>
+                    <x>-38</x>
+<y>38</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -480,8 +480,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-57</x>
-<y>57</y>
+                    <x>-40</x>
+<y>48</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -494,8 +494,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-49</x>
-<y>53</y>
+                    <x>-20</x>
+<y>-53</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -508,8 +508,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>50</x>
-<y>-57</y>
+                    <x>-36</x>
+<y>58</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -522,8 +522,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>56</x>
-<y>-57</y>
+                    <x>51</x>
+<y>3</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -537,7 +537,7 @@
 <interface_config>
                     se.sics.cooja.interfaces.Position
                     <x>53</x>
-<y>55</y>
+<y>-56</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -550,8 +550,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>53</x>
-<y>58</y>
+                    <x>-53</x>
+<y>-23</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -564,8 +564,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-47</x>
-<y>54</y>
+                    <x>-25</x>
+<y>49</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -578,8 +578,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-51</x>
-<y>-60</y>
+                    <x>56</x>
+<y>52</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -592,8 +592,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>54</x>
-<y>-57</y>
+                    <x>38</x>
+<y>51</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -606,8 +606,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>58</x>
-<y>-51</y>
+                    <x>-58</x>
+<y>56</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -620,8 +620,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-75</x>
-<y>-63</y>
+                    <x>-74</x>
+<y>-75</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -634,8 +634,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>61</x>
-<y>-72</y>
+                    <x>7</x>
+<y>-62</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -648,8 +648,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>63</x>
-<y>-61</y>
+                    <x>65</x>
+<y>-21</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -662,8 +662,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-64</x>
-<y>-70</y>
+                    <x>68</x>
+<y>29</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -676,8 +676,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-74</x>
-<y>66</y>
+                    <x>65</x>
+<y>61</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -690,8 +690,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>69</x>
-<y>67</y>
+                    <x>67</x>
+<y>-47</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -704,8 +704,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-63</x>
-<y>-71</y>
+                    <x>63</x>
+<y>-11</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -718,8 +718,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-63</x>
-<y>63</y>
+                    <x>12</x>
+<y>-68</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -732,8 +732,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-74</x>
-<y>-72</y>
+                    <x>-71</x>
+<y>-10</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -746,8 +746,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>68</x>
-<y>65</y>
+                    <x>39</x>
+<y>-71</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -760,8 +760,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>81</x>
-<y>-76</y>
+                    <x>-78</x>
+<y>-8</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -774,8 +774,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>75</x>
-<y>76</y>
+                    <x>66</x>
+<y>-90</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -788,8 +788,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>80</x>
-<y>-86</y>
+                    <x>-85</x>
+<y>-35</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -802,8 +802,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-83</x>
-<y>-88</y>
+                    <x>87</x>
+<y>-79</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -816,8 +816,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>76</x>
-<y>88</y>
+                    <x>-45</x>
+<y>75</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -830,7 +830,7 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-88</x>
+                    <x>67</x>
 <y>-78</y>
 <z>0.0</z>
 </interface_config>
@@ -844,8 +844,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>76</x>
-<y>-88</y>
+                    <x>86</x>
+<y>56</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -858,8 +858,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>77</x>
-<y>89</y>
+                    <x>-78</x>
+<y>79</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -872,8 +872,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-76</x>
-<y>79</y>
+                    <x>55</x>
+<y>-88</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -886,8 +886,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>84</x>
-<y>-82</y>
+                    <x>80</x>
+<y>-74</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -900,8 +900,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-98</x>
-<y>-92</y>
+                    <x>-104</x>
+<y>-3</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -914,8 +914,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-96</x>
-<y>-100</y>
+                    <x>-47</x>
+<y>-97</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -928,8 +928,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-105</x>
-<y>-94</y>
+                    <x>93</x>
+<y>30</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -942,8 +942,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-105</x>
-<y>98</y>
+                    <x>-62</x>
+<y>100</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -956,8 +956,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-92</x>
-<y>104</y>
+                    <x>62</x>
+<y>-104</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -970,8 +970,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-96</x>
-<y>104</y>
+                    <x>23</x>
+<y>-100</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -984,8 +984,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>95</x>
-<y>-92</y>
+                    <x>-102</x>
+<y>-61</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -998,8 +998,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-95</x>
-<y>-93</y>
+                    <x>-93</x>
+<y>50</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1012,8 +1012,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-91</x>
-<y>-98</y>
+                    <x>103</x>
+<y>83</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1026,8 +1026,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>101</x>
-<y>-102</y>
+                    <x>96</x>
+<y>-8</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1040,8 +1040,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-107</x>
-<y>107</y>
+                    <x>31</x>
+<y>-120</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1054,8 +1054,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>119</x>
-<y>118</y>
+                    <x>-50</x>
+<y>-106</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1068,8 +1068,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-109</x>
-<y>-114</y>
+                    <x>-117</x>
+<y>-116</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1082,8 +1082,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-109</x>
-<y>-119</y>
+                    <x>102</x>
+<y>115</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1096,8 +1096,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-115</x>
-<y>-113</y>
+                    <x>-119</x>
+<y>-56</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1110,8 +1110,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-109</x>
-<y>-115</y>
+                    <x>-119</x>
+<y>-117</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1125,7 +1125,7 @@
 <interface_config>
                     se.sics.cooja.interfaces.Position
                     <x>119</x>
-<y>119</y>
+<y>43</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1138,8 +1138,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>115</x>
-<y>112</y>
+                    <x>-112</x>
+<y>-10</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1152,8 +1152,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>111</x>
-<y>108</y>
+                    <x>113</x>
+<y>8</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1166,8 +1166,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>109</x>
-<y>-106</y>
+                    <x>-3</x>
+<y>117</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1180,8 +1180,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-135</x>
-<y>127</y>
+                    <x>-132</x>
+<y>-41</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1194,8 +1194,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>128</x>
-<y>126</y>
+                    <x>-97</x>
+<y>-123</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1208,8 +1208,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>122</x>
-<y>122</y>
+                    <x>-112</x>
+<y>132</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1222,8 +1222,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-128</x>
-<y>126</y>
+                    <x>88</x>
+<y>-123</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1236,8 +1236,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>130</x>
-<y>-130</y>
+                    <x>-125</x>
+<y>-19</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1250,8 +1250,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-133</x>
-<y>129</y>
+                    <x>98</x>
+<y>-127</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1264,8 +1264,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>131</x>
-<y>-130</y>
+                    <x>-115</x>
+<y>133</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1278,8 +1278,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-127</x>
-<y>-129</y>
+                    <x>-123</x>
+<y>107</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1292,8 +1292,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-122</x>
-<y>-133</y>
+                    <x>-125</x>
+<y>-105</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1306,8 +1306,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>133</x>
-<y>-135</y>
+                    <x>120</x>
+<y>77</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1320,8 +1320,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-137</x>
-<y>-136</y>
+                    <x>7</x>
+<y>141</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1334,8 +1334,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-149</x>
-<y>149</y>
+                    <x>143</x>
+<y>-141</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1348,8 +1348,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>145</x>
-<y>-146</y>
+                    <x>-142</x>
+<y>118</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1362,8 +1362,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-149</x>
-<y>142</y>
+                    <x>57</x>
+<y>138</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1376,8 +1376,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-142</x>
-<y>137</y>
+                    <x>-140</x>
+<y>-122</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1390,8 +1390,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>138</x>
-<y>-137</y>
+                    <x>-145</x>
+<y>-111</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1404,8 +1404,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>148</x>
-<y>144</y>
+                    <x>68</x>
+<y>-143</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1418,8 +1418,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>142</x>
-<y>144</y>
+                    <x>135</x>
+<y>138</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1432,8 +1432,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-139</x>
-<y>145</y>
+                    <x>-14</x>
+<y>-143</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1446,8 +1446,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-140</x>
-<y>147</y>
+                    <x>103</x>
+<y>-140</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1460,8 +1460,8 @@
 <breakpoints></breakpoints>
 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>-165</x>
-<y>-165</y>
+                    <x>148</x>
+<y>-120</y>
 <z>0.0</z>
 </interface_config>
 <interface_config>
@@ -1516,22 +1516,6 @@
 <height>700</height>
 <location_x>282</location_x>
 <location_y>18</location_y>
-<minimized>true</minimized>
-</plugin>
-<plugin>
-    se.sics.cooja.plugins.RadioLogger
-    <plugin_config>
-<split>150</split>
-<formatted_time></formatted_time>
-<showdups>false</showdups>
-<hidenodests>false</hidenodests>
-<analyzers name="6lowpan-pcap"></analyzers>
-</plugin_config>
-<width>500</width>
-<z>-1</z>
-<height>300</height>
-<location_x>182</location_x>
-<location_y>64</location_y>
 <minimized>true</minimized>
 </plugin>
 </simconf>

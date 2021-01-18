@@ -59,7 +59,24 @@
     <plugin>
     se.sics.cooja.plugins.ScriptRunner
     <plugin_config>
-      <script>TIMEOUT(1800000, log.log("last msg: " + msg + "\n"));</script>
+      <script>TIMEOUT(1800000, log.log("last msg: " + msg + "\n"));/*battery_level = 5000;
+while(1) {
+        YIELD();
+   msgArray = msg.split(' ');
+   if(msgArray.length > 2){
+        if(msgArray[2].equals("P")) {
+           consume = ((msgArray[7]*19.5 +  msgArray[8]*21.5 +
+msgArray[5]*1.8 + msgArray[6]*0.0545)*3)/32768;
+           log.log("Energy consume by mote " + id + " is " + consume +  "  mJ\n");
+           remaining = battery_level - consume;
+           if(remaining <= 0){
+            log.log("mote " + id + " out of energy\n");
+            mote.getSimulation().removeMote(mote);
+           }
+        }
+   }
+}*/
+</script>
       <active>true</active>
     </plugin_config>
     <width>600</width>
@@ -67,22 +84,6 @@
     <height>700</height>
     <location_x>282</location_x>
     <location_y>18</location_y>
-    <minimized>true</minimized>
-  </plugin>
-  <plugin>
-    se.sics.cooja.plugins.RadioLogger
-    <plugin_config>
-      <split>150</split>
-      <formatted_time />
-      <showdups>false</showdups>
-      <hidenodests>false</hidenodests>
-      <analyzers name="6lowpan-pcap" />
-    </plugin_config>
-    <width>500</width>
-    <z>-1</z>
-    <height>300</height>
-    <location_x>182</location_x>
-    <location_y>64</location_y>
     <minimized>true</minimized>
   </plugin>
 </simconf>

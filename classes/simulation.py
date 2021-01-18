@@ -23,9 +23,9 @@ class Simulation():
 
     cscfile = ''
     RTIMER = 32768
-    DIO = 'DODAG Information Object'
-    DIS = 'RPL Control (DODAG Information Solicitation)'
-    DAO = 'RPL Control (Destination Advertisement Object)'
+    DIO = 'Receive DIO message' #'DODAG Information Object'
+    DIS = 'Receive DIS message'#'RPL Control (DODAG Information Solicitation)'
+    DAO = 'Receive DAO message'#'RPL Control (Destination Advertisement Object)'
     LOG_ACTIONS = {
         'energy_report': r'^.*ID.*%\)',
         'send_data': r'DATA send',
@@ -34,7 +34,7 @@ class Simulation():
         'best': r'ID:\d*\tBest parent:.*'
     }
 
-    def __init__(self, log, csc, pcap=None, BateryEnergy=3500):
+    def __init__(self, log, csc, pcap=None, BateryEnergy=8000):
         self.pcap = [] #self.openCSV(pcap) over development replace sniffer file
         self.log = log
         self.BEnergy = BateryEnergy
@@ -42,6 +42,7 @@ class Simulation():
         self.topologies = {}
         self.motes = self.defineMotes()
         self.ROOT_DIR = os.path.abspath(os.curdir)
+        self.lifetime = None
 
     def openCSV(self, filename):
         file = []
@@ -77,13 +78,23 @@ class Simulation():
     def getControlOverhead(self):
         #return self.getCount("Info", self.DIO) + self.getCount("Info", self.DIS) + self.getCount("Info", self.DAO)
         with open(self.log, 'r+') as f:
-            data = mmap.mmap(f.fileno(), 0)
-            dio = re.findall(bytes(rf'{self.DIO}', 'utf8'), data)
-            dis = re.findall(bytes(rf'{self.DIS}', 'utf8'), data)
-            dao = re.findall(bytes(rf'{self.DAO}', 'utf8'), data)
-            if dio or dis or dao:
-                print(f"DATA receive by the sink is: {len(dis)+len(dio)+len(dao)} UDP packects")
-                return len(dis)+len(dio)+len(dao)
+            data = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
+            # dio = re.findall(bytes(rf'{self.DIO}', 'utf8'), data, re.MULTILINE)
+            # dis = re.findall(bytes(rf'{self.DIS}', 'utf8'), data, re.MULTILINE)
+            # dao = re.findall(bytes(rf'{self.DAO}', 'utf8'), data, re.MULTILINE)
+            rpl_message = 0
+            dao = 0
+            for line in iter(data.readline, b""):
+                strLine = str(line, "utf-8")
+                if(self.getTime(line).split(':')[0] == str(self.lifetime)):
+                    break
+                if('Receive' in strLine):
+                    if('DAO' in strLine):
+                        dao = dao + 1
+                    rpl_message = rpl_message + 1
+            print(f"Sended in total --> {rpl_message} RPL messages")
+            print("DAO messages --> {}".format(dao))
+            return rpl_message
     
     def getCount(self, column, parameter): # Count with help of the PCAP file, now is deprecated
         return len([self.pcap[i][column] for i in range(len(self.pcap))
@@ -103,18 +114,28 @@ class Simulation():
     def getDataSendToSink(self):
         with open(self.log, 'r+') as f:
             data = mmap.mmap(f.fileno(), 0)
-            mo = re.findall(bytes(r'DATA send', 'utf8'), data)
-            if mo:
-                print(f"DATA sending to the sink is: {len(mo)} UDP packects")
-                return len(mo)
+            data_to_sink = 0
+            for line in iter(data.readline, b""):
+                strLine = str(line, "utf-8")
+                if(self.getTime(line).split(':')[0] == str(self.lifetime)):
+                    break
+                if('DATA send' in strLine):
+                    data_to_sink = data_to_sink + 1
+            print(f"DATA sending to the sink is: {data_to_sink} UDP packects")
+            return data_to_sink
 
     def getDataReceiveBySink(self):
         with open(self.log, 'r+') as f:
             data = mmap.mmap(f.fileno(), 0)
-            mo = re.findall(rb'DATA recv', data)
-            if mo:
-                print(f"DATA receive by the sink is: {len(mo)} UDP packects")
-                return len(mo)
+            data_in_sink = 0
+            for line in iter(data.readline, b""):
+                strLine = str(line, "utf-8")
+                if(self.getTime(line).split(':')[0] == str(self.lifetime)):
+                    break
+                if('DATA recv' in strLine):
+                    data_in_sink = data_in_sink + 1
+            print(f"DATA receive by the sink is: {data_in_sink} UDP packects")
+            return data_in_sink
 
     def getPDR(self):
         return round((self.getDataReceiveBySink()/self.getDataSendToSink())*100, 2)
@@ -169,6 +190,7 @@ class Simulation():
                             all_transmit, all_listen, all_cpu, all_lpm))
                         print('Node ' + ID + ' DIE at ' + Time + ' seconds')
                         return int(Time.split(':')[0])
+            return 0
 
     def getEnergyConsumed(self, transmit, listen, cpu, lpm):
         # Energy (J) = (Transmit * 19.5 mA + Listen * 21.5 mA + CPU time * 1.8 mA + LPM * 0.0545 mA) * 3 V /32768
@@ -231,13 +253,15 @@ class Simulation():
         print(f'Number of sending UDP packets: {UDP}')
         return self.pcap
 
-    def evaluateMetric(self, metric):
+    def evaluateMetric(self, metric, limit=-1):
         switcher = {
             'PDR': self.getPDR,
             'Energy': self.getAverageEnergy,
             'Overhead': self.getControlOverhead,
             'Lifetime': self.getNetworkLifetime,
         }
+        if(limit != -1 and self.lifetime == None):
+            self.lifetime = limit
         func = switcher.get(metric, "Metric in development")
         return func()
 

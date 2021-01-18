@@ -107,16 +107,14 @@ class ContikiMote():
         return len(set(self.parents))-1
 
     def actualPacket(self, line):
-        self.sended_packets[ self.Sim.getHello(line)] =  self.Sim.getTime(bytes(line, 'utf-8')).replace('.', ':')
+        self.sended_packets[self.Sim.getHello(line)] =  self.Sim.getTime(bytes(line, 'utf-8')).replace('.', ':')
 
     def receivePacket(self, line):
         recv =  self.Sim.getTime(bytes(line, 'utf-8')).replace('.', ':')
         hello =  self.Sim.getHello(line)
         if hello in self.sended_packets.keys():
             self.sended_packets[hello] =  datetime.strptime(recv, '%M:%S:%f') - datetime.strptime(self.sended_packets[hello],'%M:%S:%f')
-            self.sended_packets[hello] = self.sended_packets[hello].total_seconds(
-            )
-            return self.sended_packets[hello]
+            return self.sended_packets[hello].total_seconds()
 
     def getUDPackets(self):
         with open(self.log, 'r+') as f:
@@ -133,7 +131,8 @@ class ContikiMote():
             regex = fr'^.*ID.{self.ID}.*%\)'
             powertrace = re.findall(bytes(regex, 'utf8'), data, re.MULTILINE)
             if powertrace:
-                power = powertrace[-1]
+                #power = powertrace[-1]
+                power = [report for report in powertrace if int(str(report, 'utf8').split(':')[0]) <= self.Sim.lifetime][-1]
                 (all_cpu, all_lpm, all_transmit, all_listen) = [float(i) for i in str(power).split()[5:9]]
                 return  self.Sim.getEnergyConsumed(all_transmit, all_listen, all_cpu, all_lpm)    
 
