@@ -59,24 +59,25 @@
     <plugin>
     se.sics.cooja.plugins.ScriptRunner
     <plugin_config>
-      <script>TIMEOUT(1800000, log.log("last msg: " + msg + "\n"));/*battery_level = 5000;
+<script>TIMEOUT(1800000, log.log("last msg: " + msg + "\n"));
+
+battery_level = 9000;
 while(1) {
         YIELD();
    msgArray = msg.split(' ');
-   if(msgArray.length > 2){
+   if(msgArray.length &gt; 2){
         if(msgArray[2].equals("P")) {
            consume = ((msgArray[7]*19.5 +  msgArray[8]*21.5 +
 msgArray[5]*1.8 + msgArray[6]*0.0545)*3)/32768;
            log.log("Energy consume by mote " + id + " is " + consume +  "  mJ\n");
            remaining = battery_level - consume;
-           if(remaining <= 0){
+           if(remaining &lt;= 0){
             log.log("mote " + id + " out of energy\n");
             mote.getSimulation().removeMote(mote);
            }
         }
    }
-}*/
-</script>
+}</script>
       <active>true</active>
     </plugin_config>
     <width>600</width>

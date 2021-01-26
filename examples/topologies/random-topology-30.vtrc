@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <simconfig>
+        <simsfiles>
+            <log>D:/Documents/PythonFiles/ViTool-RC/examples/sim-2/log-WRF-nodes25_2.txt</log>
+            <csc_file>D:/Documents/PythonFiles/ViTool-RC/examples/topologies/view-nodes31-Sim1.csc</csc_file>
+        </simsfiles>
+    <parameters> 
+        <energylevel>1500</energylevel>
+        <delay>0.01</delay>
+        <mote_size>25</mote_size>
+        <node_scale>3</node_scale>
+    </parameters>
+</simconfig>
+        

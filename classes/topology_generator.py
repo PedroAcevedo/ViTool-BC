@@ -108,7 +108,7 @@ class Topologies():
                 <breakpoints />
                 <interface_config>
                     se.sics.cooja.interfaces.Position
-                    <x>{ x if id!=1 else 0.0}</x>
+                    <x>{ x if id!=1 else self.endInterval[0]}</x>
                     <y>{ y if id!=1 else 0.0}</y>
                     <z>0.0</z>
                 </interface_config>
@@ -121,7 +121,7 @@ class Topologies():
                 """
 
     def getCoordinate(self, axis, id):
-        if(self.nodes < 20):
+        if(self.nodes < 3):
             return choice([i for i in range(int(self.startInterval[axis]/2*self.areaById(id)),int(self.endInterval[axis]/2*self.areaById(id))) if i not in self.insideRange(id, axis)])
         else:
             return choice([i for i in range(int(self.startInterval[axis]*self.areaById(id)),int(self.endInterval[axis]*self.areaById(id)))])
@@ -132,7 +132,7 @@ class Topologies():
         return area if id < self.nodes else 1.0
 
     def insideRange(self, id, i):
-        if(id <= 10):
+        if(id < 10):
             return range(-10,10)
         else:
             less = 10 if id < self.nodes else 20
@@ -142,14 +142,17 @@ class Topologies():
 ## trafficFiles/PCAP-OF-Sim1-4.csv
 ## trafficFiles/view-nodes40-Sim1-4.csc
 
-def generateGraph(metric, ofs, nodeInterval, folder="sim-1"):
+def generateGraph(metric, ofs, nodeInterval, folder="sim-1", lifetime=[]):
     data = dict()
     for i in range(len(nodeInterval)):
         path_to = f'examples/{folder}/{nodeInterval[i]}'
         for of in ofs:
             print(f'OF analizada --> {of}')
             sim = Simulation(f'{path_to}/log-{of}-Sim{i+1}.txt', f'{path_to}/view-nodes{nodeInterval[i]}-Sim{i+1}.csc');
-            m = sim.evaluateMetric(metric)
+            if(metric != 'Lifetime'):
+                m = sim.evaluateMetric(metric, limit=lifetime[i])
+            else:
+                m = sim.evaluateMetric(metric)
             #sim.getGeneralInfo(f'{path_to}/PCAP-{of}.csv')
             if (m == None):
                 m = 0 
@@ -161,7 +164,7 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1"):
     df = pd.DataFrame(data, index=nodeInterval)
     print(df)
     plt.xlabel('Number of nodes')
-    plt.style.use('fivethirtyeight')
+    #plt.style.use('fivethirtyeight')
     if(metric == 'PDR'):
         df.plot(kind='bar', rot=0, ylim=(10,100))
         plt.ylabel('Packet Delivery Rate (PDR)')
@@ -175,7 +178,11 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1"):
         df.plot(kind='bar', rot=0)
         plt.xlabel('Number of nodes')
         plt.ylabel('Network lifetime (min)')
-
+        for key in data.keys():
+            for i, element in enumerate(data[key]):
+                if (element == 0):
+                    data[key][i] = 1000
+        return (min(data.values()))
 
 def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
     data = dict()
@@ -226,7 +233,7 @@ def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
                                     "axes.labelsize": 18})    
     plt.style.use('fivethirtyeight')
     if(metric == 'PDR'):
-        df.plot(kind='bar', rot=0, ylim=(10,100))
+        df.plot(kind='bar', rot=0,  ylim=(0,100))
         plt.ylabel('Packet Delivery Rate (PDR)')
     elif(metric == 'Energy'):
         df.plot(kind='area', stacked=False)

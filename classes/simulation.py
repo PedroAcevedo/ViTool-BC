@@ -78,7 +78,7 @@ class Simulation():
     def getControlOverhead(self):
         #return self.getCount("Info", self.DIO) + self.getCount("Info", self.DIS) + self.getCount("Info", self.DAO)
         with open(self.log, 'r+') as f:
-            data = mmap.mmap(f.fileno(), 0, prot=mmap.PROT_READ)
+            data = mmap.mmap(f.fileno(), 0)
             # dio = re.findall(bytes(rf'{self.DIO}', 'utf8'), data, re.MULTILINE)
             # dis = re.findall(bytes(rf'{self.DIS}', 'utf8'), data, re.MULTILINE)
             # dao = re.findall(bytes(rf'{self.DAO}', 'utf8'), data, re.MULTILINE)

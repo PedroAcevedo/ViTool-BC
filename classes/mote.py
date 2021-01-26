@@ -113,8 +113,11 @@ class ContikiMote():
         recv =  self.Sim.getTime(bytes(line, 'utf-8')).replace('.', ':')
         hello =  self.Sim.getHello(line)
         if hello in self.sended_packets.keys():
-            self.sended_packets[hello] =  datetime.strptime(recv, '%M:%S:%f') - datetime.strptime(self.sended_packets[hello],'%M:%S:%f')
-            return self.sended_packets[hello].total_seconds()
+            if  self.sended_packets[hello].split('.') == []:
+                self.sended_packets[hello] =  datetime.strptime(recv, '%M:%S:%f') - datetime.strptime(self.sended_packets[hello] ,'%M:%S:%f')
+                segs = self.sended_packets[hello].total_seconds()
+                self.sended_packets[hello] = str(self.sended_packets[hello])
+                return segs
 
     def getUDPackets(self):
         with open(self.log, 'r+') as f:
