@@ -121,7 +121,8 @@ class Simulation():
                     break
                 if('DATA send' in strLine):
                     data_to_sink = data_to_sink + 1
-            print(f"DATA sending to the sink is: {data_to_sink} UDP packects")
+            # print(f"DATA sending to the sink is: {data_to_sink} UDP packects")
+            print(data_to_sink)
             return data_to_sink
 
     def getDataReceiveBySink(self):
@@ -134,7 +135,8 @@ class Simulation():
                     break
                 if('DATA recv' in strLine):
                     data_in_sink = data_in_sink + 1
-            print(f"DATA receive by the sink is: {data_in_sink} UDP packects")
+            print('Data Packets --> {}/'.format(str(data_in_sink)), end="")
+            # print(f"DATA receive by the sink is: {data_in_sink} UDP packects")
             return data_in_sink
 
     def getPDR(self):
@@ -185,10 +187,10 @@ class Simulation():
                         (self.getEnergyConsumed(
                             all_transmit, all_listen, all_cpu, all_lpm))
                     if(remaining < 0):
-                        print(power)
-                        print(self.getEnergyConsumed(
-                            all_transmit, all_listen, all_cpu, all_lpm))
-                        print('Node ' + ID + ' DIE at ' + Time + ' seconds')
+                        # print(power)
+                        # print(self.getEnergyConsumed(
+                        #     all_transmit, all_listen, all_cpu, all_lpm))
+                        # print('Node ' + ID + ' DIE at ' + Time + ' seconds')
                         return int(Time.split(':')[0])
             return 0
 

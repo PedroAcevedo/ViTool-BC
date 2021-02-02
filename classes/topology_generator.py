@@ -135,7 +135,7 @@ class Topologies():
         if(id < 10):
             return range(-10,10)
         else:
-            less = 10 if id < self.nodes else 20
+            less = 20 if id < self.nodes else 10
             return range(int(self.startInterval[i]*self.areaById(id-less)),int(self.endInterval[i]*self.areaById(id-less)))
 
 ## trafficFiles/lg-OF-Sim1-4.txt
@@ -147,9 +147,9 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1", lifetime=[]):
     for i in range(len(nodeInterval)):
         path_to = f'examples/{folder}/{nodeInterval[i]}'
         for of in ofs:
-            print(f'OF analizada --> {of}')
             sim = Simulation(f'{path_to}/log-{of}-Sim{i+1}.txt', f'{path_to}/view-nodes{nodeInterval[i]}-Sim{i+1}.csc');
             if(metric != 'Lifetime'):
+                print(f'{of}:')
                 m = sim.evaluateMetric(metric, limit=lifetime[i])
             else:
                 m = sim.evaluateMetric(metric)
@@ -160,8 +160,8 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1", lifetime=[]):
                 data[of].append(m)
             else:
                 data[of] = [m]
-    print(data)
     df = pd.DataFrame(data, index=nodeInterval)
+    print('--------{:<8}---------'.format(metric))
     print(df)
     plt.xlabel('Number of nodes')
     #plt.style.use('fivethirtyeight')
@@ -178,11 +178,15 @@ def generateGraph(metric, ofs, nodeInterval, folder="sim-1", lifetime=[]):
         df.plot(kind='bar', rot=0)
         plt.xlabel('Number of nodes')
         plt.ylabel('Network lifetime (min)')
-        for key in data.keys():
-            for i, element in enumerate(data[key]):
-                if (element == 0):
-                    data[key][i] = 1000
-        return (min(data.values()))
+
+        min_values = [1000 for node in nodeInterval]
+
+        for i in range(len(nodeInterval)):
+            for of in ofs:
+                if(data[of][i] < min_values[i]):
+                     min_values[i] = data[of][i]
+
+        return min_values
 
 def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
     data = dict()
@@ -245,11 +249,14 @@ def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
         df.plot(kind='bar', rot=0)
         plt.xlabel('ppm')
         plt.ylabel('Network lifetime (min)')
-        for key in data.keys():
-            for i, element in enumerate(data[key]):
-                if (element == 0):
-                    data[key][i] = 1000
-        return (min(data.values()))
+        min_values = [1000 for node in nodeInterval]
+
+        for i in range(len(nodeInterval)):
+            for of in ofs:
+                if(data[of][i] < min_values[i]):
+                     min_values[i] = data[of][i]
+
+        return min_values
 
 # Sim = Simulation('trafficFiles/sims/sim-4/30/log-mrhof-Sim3.txt','trafficFiles/sims/sim-4/30/PCAP-mrhof-Sim3.csv','view-nodes30-Sim3.csc')
 # print(Sim.motes['3'].getEnergyConsumeByLog('20:01.260	ID:21	 153607 P 0.18 19 2348414 36967561 487180 862161 0 454435 162326 1803549 56121 48775 0 16926 (radio 3.-285% / 5.33% tx 1.-86% / 2.85% listen 2.-200% / 2.48%)'))

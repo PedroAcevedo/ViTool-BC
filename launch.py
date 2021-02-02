@@ -112,11 +112,14 @@ if __name__ == "__main__":
     from classes import topology_generator as tp
     import matplotlib.pyplot as plt
     # posible metrics --> [PDR, Overhead, Energy, Lifetime]
-    lifetime = tp.generateGraph('Lifetime', ['WRF','MRHOF'], [31,51,101], folder='nodes-tests')
-    print(lifetime)
-    tp.generateGraph('PDR', ['WRF','MRHOF'],[31,51,101], folder='nodes-tests',  lifetime=lifetime)
-    tp.generateGraph('Overhead', ['WRF','MRHOF'],[31,51,101], folder='nodes-tests', lifetime=lifetime)
-    tp.generateGraph('Energy',  ['WRF','MRHOF'], [31,51,101], folder='nodes-tests', lifetime=lifetime)
+    lifetime = tp.generateGraph('Lifetime', ['WRF','MRHOF'], [31,51,76,101], folder='nodes-tests')
+    print('Lowest lifetime of the networks --> {}'.format(','.join([str(time) for time in lifetime])))
+    print('\n')
+    tp.generateGraph('PDR', ['WRF','MRHOF'],[31,51,76,101], folder='nodes-tests', lifetime=lifetime)
+    print('\n')
+    tp.generateGraph('Overhead', ['WRF','MRHOF'],[31,51,76,101], folder='nodes-tests', lifetime=lifetime)
+    print('\n')
+    tp.generateGraph('Energy',  ['WRF','MRHOF'], [31,51,76,101], folder='nodes-tests', lifetime=lifetime)
     plt.show()
 
     # tp.generateGraph('PDR', ['MRHOF','OF0','WRF'],[25], folder='sim-3')
@@ -125,7 +128,7 @@ if __name__ == "__main__":
     # tp.generateGraph('Lifetime', ['MRHOF','OF0','WRF'],[25], folder='sim-3')
 
     # from classes.topology_generator import Topologies
-    # top = Topologies(1, 'mySimulation', 50,1.0,0.9, [100,100], startInterval=[-100,-100], TR=70, IR=90)
+    # top = Topologies(1, 'mySimulation', 75,1.0,0.9, [100,100], startInterval=[-100,-100], TR=70, IR=90)
     # top.generate()
 
     # main()
