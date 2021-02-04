@@ -190,7 +190,7 @@ class Simulation():
                         # print(power)
                         # print(self.getEnergyConsumed(
                         #     all_transmit, all_listen, all_cpu, all_lpm))
-                        # print('Node ' + ID + ' DIE at ' + Time + ' seconds')
+                        print('Node ' + ID + ' DIE at ' + Time + ' seconds')
                         return int(Time.split(':')[0])
             return 0
 

@@ -103,9 +103,11 @@ if __name__ == "__main__":
     # import matplotlib.pyplot as plt
     # # posible metrics --> [PDR, Overhead, Energy, Lifetime]
     # lifetime = tp.generateGraphTraffic('Lifetime', ['WRF','MRHOF'], [20,40,80,100], 31,  folder='ppm-last')
-    # print(lifetime)
+    # print('Lowest lifetime of the networks --> {}'.format(','.join([str(time) for time in lifetime])))
     # tp.generateGraphTraffic('PDR', ['WRF','MRHOF'],[20,40,80,100], 31, folder='ppm-last',  lifetime=lifetime)
+    # print('\n')
     # tp.generateGraphTraffic('Overhead', ['WRF','MRHOF'],[20,40,80,100], 31, folder='ppm-last', lifetime=lifetime)
+    # print('\n')
     # tp.generateGraphTraffic('Energy',  ['WRF','MRHOF'], [20,40,80,100], 31,  folder='ppm-last', lifetime=lifetime)
     # plt.show()
 

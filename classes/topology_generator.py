@@ -193,9 +193,9 @@ def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
     for i in range(len(ppm)):
         path_to = f'examples/{folder}/{ppm[i]}'
         for of in ofs:
-            print(f'OF analizada --> {of}')
             sim = Simulation(f'{path_to}/log-{of}-Sim{i+1}.txt', f'examples/{folder}/view-nodes{nodes}-Sim1.csc');
             if(metric != 'Lifetime'):
+                print(f'{of}:')
                 m = sim.evaluateMetric(metric, limit=lifetime[i])
             else:
                 m = sim.evaluateMetric(metric)
@@ -206,8 +206,8 @@ def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
                 data[of].append(m)
             else:
                 data[of] = [m]
-    print(data)
     df = pd.DataFrame(data, index=ppm)
+    print('--------{:<8}---------'.format(metric))
     print(df)
     plt.xlabel('ppm')
     import seaborn as sns
@@ -249,9 +249,9 @@ def generateGraphTraffic(metric, ofs, ppm, nodes, folder="sim-1", lifetime=[]):
         df.plot(kind='bar', rot=0)
         plt.xlabel('ppm')
         plt.ylabel('Network lifetime (min)')
-        min_values = [1000 for node in nodeInterval]
+        min_values = [1000 for node in ppm]
 
-        for i in range(len(nodeInterval)):
+        for i in range(len(ppm)):
             for of in ofs:
                 if(data[of][i] < min_values[i]):
                      min_values[i] = data[of][i]
