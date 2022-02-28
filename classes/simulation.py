@@ -19,13 +19,16 @@ from PIL import Image, ImageDraw
 from classes.mote import ContikiMote
 import time
 
+
 class Simulation():
 
     cscfile = ''
     RTIMER = 32768
-    DIO = 'Receive DIO message' #'DODAG Information Object'
-    DIS = 'Receive DIS message'#'RPL Control (DODAG Information Solicitation)'
-    DAO = 'Receive DAO message'#'RPL Control (Destination Advertisement Object)'
+    DIO = 'Receive DIO message'  # 'DODAG Information Object'
+    # 'RPL Control (DODAG Information Solicitation)'
+    DIS = 'Receive DIS message'
+    # 'RPL Control (Destination Advertisement Object)'
+    DAO = 'Receive DAO message'
     LOG_ACTIONS = {
         'energy_report': r'^.*ID.*%\)',
         'send_data': r'DATA send',
@@ -35,7 +38,8 @@ class Simulation():
     }
 
     def __init__(self, log, csc, pcap=None, BateryEnergy=8000):
-        self.pcap = [] #self.openCSV(pcap) over development replace sniffer file
+        # self.openCSV(pcap) over development replace sniffer file
+        self.pcap = []
         self.log = log
         self.BEnergy = BateryEnergy
         Simulation.cscfile = csc
@@ -76,7 +80,7 @@ class Simulation():
         return len([self.pcap[i]['Protocol'] for i in range(len(self.pcap))])
 
     def getControlOverhead(self):
-        #return self.getCount("Info", self.DIO) + self.getCount("Info", self.DIS) + self.getCount("Info", self.DAO)
+        # return self.getCount("Info", self.DIO) + self.getCount("Info", self.DIS) + self.getCount("Info", self.DAO)
         with open(self.log, 'r+') as f:
             data = mmap.mmap(f.fileno(), 0)
             # dio = re.findall(bytes(rf'{self.DIO}', 'utf8'), data, re.MULTILINE)
@@ -86,7 +90,7 @@ class Simulation():
             dao = 0
             for line in iter(data.readline, b""):
                 strLine = str(line, "utf-8")
-                if(self.getTime(line).split(':')[0] == str(self.lifetime)):
+                if(int(self.getTime(line).split(':')[0]) == self.lifetime):
                     break
                 if('Receive' in strLine):
                     if('DAO' in strLine):
@@ -95,8 +99,8 @@ class Simulation():
             print(f"Sended in total --> {rpl_message} RPL messages")
             print("DAO messages --> {}".format(dao))
             return rpl_message
-    
-    def getCount(self, column, parameter): # Count with help of the PCAP file, now is deprecated
+
+    def getCount(self, column, parameter):  # Count with help of the PCAP file, now is deprecated
         return len([self.pcap[i][column] for i in range(len(self.pcap))
                     if parameter in self.pcap[i][column]])
 
@@ -117,7 +121,7 @@ class Simulation():
             data_to_sink = 0
             for line in iter(data.readline, b""):
                 strLine = str(line, "utf-8")
-                if(self.getTime(line).split(':')[0] == str(self.lifetime)):
+                if(int(self.getTime(line).split(':')[0]) == self.lifetime):
                     break
                 if('DATA send' in strLine):
                     data_to_sink = data_to_sink + 1
@@ -131,7 +135,7 @@ class Simulation():
             data_in_sink = 0
             for line in iter(data.readline, b""):
                 strLine = str(line, "utf-8")
-                if(self.getTime(line).split(':')[0] == str(self.lifetime)):
+                if(int(self.getTime(line).split(':')[0]) == self.lifetime):
                     break
                 if('DATA recv' in strLine):
                     data_in_sink = data_in_sink + 1
